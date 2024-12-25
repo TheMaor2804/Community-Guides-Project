@@ -2,6 +2,7 @@ const express = require('express');
 const corsMiddleware = require('./middlewares/cors');
 const { handleError } = require('./utils/handleErrors');
 const loggerMiddleware = require('./logger/loggerService');
+const connectToDatabase = require('./db/dbService');
 require('dotenv').config();
 
 const app = express();
@@ -21,4 +22,5 @@ app.use((err, req, res, next) => {
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
+    connectToDatabase();
 })
