@@ -1,4 +1,5 @@
 const express = require('express');
+const { handleError } = require('./utils/handleErrors');
 require('dotenv').config();
 
 const app = express();
@@ -11,7 +12,7 @@ app.use(express.static('public'));
 
 app.use((err, req, res, next) => {
     const message = err || "Internal Server Error";
-    return res.status(500).json({ message });
+    return handleError(res, 500, message);
 });
 
 app.listen(port, () => {
