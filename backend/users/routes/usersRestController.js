@@ -17,9 +17,7 @@ router.post("/", async (req, res) => {
     const uniqueDisplayName = req.body.displayName.toLowerCase().trim();
     const error = validateRegistration(req.body);
     if (error) return handleError(res, 400, `Joi Error: ${error}`);
-
     let user = await registerUser({ ...req.body, uniqueDisplayName });
-
     res.send(user);
   } catch (error) {
     return handleError(res, error.status || 400, error.message);

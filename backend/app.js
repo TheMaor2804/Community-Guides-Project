@@ -3,6 +3,7 @@ const corsMiddleware = require('./middlewares/cors');
 const { handleError } = require('./utils/handleErrors');
 const loggerMiddleware = require('./logger/loggerService');
 const connectToDatabase = require('./db/dbService');
+const router = require('./router/router');
 require('dotenv').config();
 
 const app = express();
@@ -14,6 +15,8 @@ app.use(express.json({ limit: '10mb' }));
 app.use(loggerMiddleware());
 
 app.use(express.static('public'));
+
+app.use(router);
 
 app.use((err, req, res, next) => {
     const message = err || "Internal Server Error";
