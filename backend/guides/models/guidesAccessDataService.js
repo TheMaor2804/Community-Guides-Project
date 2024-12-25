@@ -52,6 +52,17 @@ const getMyGuides = async (userId) => {
     }
 };
 
+const getFavoriteGuides = async (userId) => {
+    validateDB();
+    try {
+        let guides = await Guide.find({ upvotes: userId }).select("-content");
+
+        return guides;
+    } catch (error) {
+        return createError("Mongoose", error);
+    }
+};
+
 const updateGuide = async (guideId, newGuide) => {
     validateDB();
     try {
@@ -162,4 +173,4 @@ const featureGuide = async (guideId) => {
     }
 }
 
-module.exports = { createGuide, getGuides, getGuideById, getMyGuides, updateGuide, deleteGuide, upvoteGuide, downvoteGuide, approveGuide, featureGuide };
+module.exports = { createGuide, getGuides, getGuideById, getMyGuides, getFavoriteGuides, updateGuide, deleteGuide, upvoteGuide, downvoteGuide, approveGuide, featureGuide };

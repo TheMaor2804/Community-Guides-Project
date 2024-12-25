@@ -23,9 +23,6 @@ const schema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    linkedBuild: {
-        type: String,
-    },
     upvotes: [String],
     downvotes: [String],
     youtubeUrl: {
