@@ -1,12 +1,16 @@
 const express = require('express');
+const corsMiddleware = require('./middlewares/cors');
 const { handleError } = require('./utils/handleErrors');
+const loggerMiddleware = require('./logger/loggerService');
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-
+app.use(corsMiddleware);
 app.use(express.json({ limit: '10mb' }));
+
+app.use(loggerMiddleware());
 
 app.use(express.static('public'));
 
