@@ -8,13 +8,7 @@ const {
 } = require("../models/usersAccessDataService");
 const auth = require("../../auth/authService");
 const { handleError } = require("../../utils/handleErrors");
-const {
-  validateRegistration,
-  validateLogin,
-} = require("../validation/userValidationService");
-const { sendVerificationEmail } = require("../../services/mailer");
-const { generateVerificationToken, verifyToken } = require("../../auth/providers/jwt");
-
+const { validateRegistration, validateLogin } = require("../validation/userValidationService");
 
 const router = express.Router();
 
@@ -26,27 +20,7 @@ router.post("/", async (req, res) => {
 
     let user = await registerUser({ ...req.body, uniqueDisplayName });
 
-    sendVerificationEmail(req.body, generateVerificationToken({ _id: user._id, email: req.body.email }));
-
     res.send(user);
-  } catch (error) {
-    return handleError(res, error.status || 400, error.message);
-  }
-});
-
-router.get("/verify-email", async (req, res) => {
-  try {
-    const { token } = req.query;
-    if (!token) return handleError(res, 400, "Token is required");
-
-    const payload = verifyToken(token);
-    if (!payload) return handleError(res, 400, "Invalid token");
-
-    const user = await getUser(payload.id);
-    if (!user) return handleError(res, 404, "User not found");
-
-    await updateUser(user._id, { isVerified: true });
-    res.send("Email verified");
   } catch (error) {
     return handleError(res, error.status || 400, error.message);
   }
