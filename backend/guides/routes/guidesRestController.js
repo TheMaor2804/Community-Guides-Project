@@ -26,10 +26,20 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-router.get("/myGuides/", auth, async (req, res) => {
+router.get("/myGuides", auth, async (req, res) => {
     try {
         const userInfo = req.user;
         const guides = await getMyGuides(userInfo._id);
+        res.send(guides);
+    } catch (error) {
+        return handleError(res, error.status || 400, error.message);
+    }
+});
+
+router.get("/favoriteGuides", auth, async (req, res) => {
+    try {
+        const userInfo = req.user;
+        const guides = await getFavoriteGuides(userInfo._id);
         res.send(guides);
     } catch (error) {
         return handleError(res, error.status || 400, error.message);
