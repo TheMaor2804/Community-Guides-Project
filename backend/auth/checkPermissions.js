@@ -1,4 +1,4 @@
-const { createError, handleError } = require("../utils/handleErrors");
+const { handleError } = require("../utils/handleErrors");
 
 const checkPermissions = permissions => {
     return (req, res, next) => {
