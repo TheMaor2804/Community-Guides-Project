@@ -74,6 +74,7 @@ const Form = ({
                         onClick={onSubmit}
                         disabled={!validateForm()}
                         size="large"
+                        color="secondary"
                     />
                 </Grid2>
                 {error && (<FormHelperText error={Boolean(error)}>{submissionError}</FormHelperText>)}
