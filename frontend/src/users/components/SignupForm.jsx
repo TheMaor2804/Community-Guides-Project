@@ -42,15 +42,6 @@ export default function SignupForm({
                 sm={6}
             />
             <Input
-                name="birthDate"
-                label="Birth Date"
-                type="date"
-                error={errors.birthDate}
-                onChange={onInputChange}
-                data={data}
-                sm={6}
-            />
-            <Input
                 name="password"
                 label="password"
                 type="password"

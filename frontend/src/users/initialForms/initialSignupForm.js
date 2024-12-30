@@ -1,7 +1,6 @@
 const initialSignupForm = {
     displayName: "",
     email: "",
-    birthDate: "",
     password: "",
     confirmPassword: "",
 };

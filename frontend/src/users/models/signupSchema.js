@@ -24,28 +24,6 @@ const signupSchema = {
             'any.only': 'Passwords must match',
             'any.required': '"confirmedPassword" is required',
         }),
-    birthDate: Joi.date().required()
-        .custom((value, helpers) => {
-            const now = new Date();
-            let age = now.getFullYear() - value.getFullYear();
-            const months = now.getMonth() - value.getMonth();
-            const days = now.getDate() - value.getDate();
-
-            if (months < 0 || (months === 0 && days < 0)) {
-                age--;
-            }
-
-            if (age < 14) {
-                return helpers.error('date.ageInvalid', {
-                    message: 'You must be at least 14 to sign up'
-                });
-            }
-
-            return value;
-        })
-        .messages({
-            'date.ageInvalid': 'You must be at least 14 to sign up'
-        }),
 };
 
 

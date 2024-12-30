@@ -1,6 +1,5 @@
-import { Button, Container, Divider, FormControl, FormGroup, Input, useTheme } from '@mui/material'
-import React, { useCallback, useEffect } from 'react'
-import googleButton from '../../assets/google_signin_buttons/web/1x/btn_google_signin_dark_pressed_web.png'
+import { Container, useTheme } from '@mui/material'
+import React from 'react'
 import SignupForm from '../components/SignupForm';
 import useForm from '../../forms/hooks/useForm';
 import { useCurrentUser } from '../providers/UserProvider';
