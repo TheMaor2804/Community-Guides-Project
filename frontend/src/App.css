@@ -1,42 +1,44 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.ql-editor {
+  color: white;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ql-toolbar {
+  color: white !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.content-container {
+  font-family: 'Arial', sans-serif;
+  word-break: break-word;
 }
 
-.card {
-  padding: 2em;
+.content-container h1 {
+  font-size: 2.2rem;
 }
 
-.read-the-docs {
-  color: #888;
+.content-container h2 {
+  font-size: 2rem;
+}
+
+.content-container p {
+  font-size: 1.8rem;
+}
+
+.content-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+.content-container ul,
+.content-container ol {
+  padding: 0 2rem;
+  margin: 1.25rem 1rem 1.25rem 0.4rem;
+  font-size: 1.8rem;
 }
