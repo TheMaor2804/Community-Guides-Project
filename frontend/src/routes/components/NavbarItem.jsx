@@ -7,7 +7,6 @@ export default function NavBarItem({
     sx,
     typographySx,
     typographyVariant = "h6",
-    typographyColor = "primary",
     label,
     variant = "text"
 }) {
@@ -18,7 +17,6 @@ export default function NavBarItem({
                 sx={{ textTransform: "none" }}
             >
                 <Typography
-                    color={typographyColor}
                     variant={typographyVariant}
                     sx={typographySx}
                 >

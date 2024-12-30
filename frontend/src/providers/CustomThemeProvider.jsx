@@ -23,10 +23,10 @@ export default function CustomThemeProvider({ children }) {
         },
         palette: {
             primary: {
-                main: "#f44336"
+                main: isDark ? "#aa2e25" : "#f44336"
             },
             secondary: {
-                main: "#00e676"
+                main: isDark ? "#00a152" : "#00e676"
             },
             error: {
                 main: colors.red[600]
@@ -35,27 +35,27 @@ export default function CustomThemeProvider({ children }) {
                 default: isDark ? colors.grey[900] : colors.grey[100],
                 paper: isDark ? "#424242D9" : colors.grey[200],
                 secondary: isDark ? colors.grey[700] : colors.grey[300],
-                header: isDark ? "#343636BF" : "#343636BF",
+                header: isDark ? "#343636BF" : colors.grey[400],
             },
         },
         typography: {
             h1: {
-                color: '#000', // apply primary color to h1 
+                color: isDark ? '#fff' : '#000', // apply primary color to h1 
             },
             h2: {
-                color: '#000', // apply primary color to h2
+                color: isDark ? '#fff' : '#000', // apply primary color to h2
             },
             h3: {
-                color: '#000',
+                color: isDark ? '#fff' : '#000',
             },
             h4: {
-                color: '#000',
+                color: isDark ? '#fff' : '#000',
             },
             h5: {
-                color: '#000',
+                color: isDark ? '#fff' : '#000',
             },
             body1: {
-                color: '#222',
+                color: isDark ? '#ddd' : '#222',
             },
         },
     })

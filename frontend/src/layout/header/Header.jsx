@@ -29,13 +29,14 @@ export default function Header() {
                     justifyContent: "space-between",
                     alignItems: "center",
                     height: "40px",
-                    backgroundColor: "#000",
+                    backgroundColor: theme.palette.secondary.main,
                 }}
             >
                 {user ? <Logged /> : <NotLogged />}
             </Container>
             <Toolbar sx={{
                 height: "100px",
+                backgroundColor: theme.palette.background.header,
             }}>
                 <Box sx={{ display: "flex", flexGrow: 1, alignItems: "center", width: "100%" }}>
                     <LeftNavbar />

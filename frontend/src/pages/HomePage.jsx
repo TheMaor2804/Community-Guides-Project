@@ -12,16 +12,11 @@ export default function HomePage() {
 
     const { guides, getAllApprovedGuides, guidesIsLoading, guidesError } = useGuides()
 
-    //todo NEWS section
-    const { news, getAllNews, newsIsLoading, newsError } = useNews();
-
-
     const { categories, getAllCategories, categoriesIsLoading, categoriesError } = useCategories();
 
     useEffect(() => {
         getAllCategories();
         getAllApprovedGuides();
-        getAllNews();
     }, [])
 
     const theme = useTheme();
