@@ -1,4 +1,4 @@
-import { colors, createTheme, ThemeProvider } from '@mui/material'
+import { colors, createTheme, ThemeProvider, useMediaQuery } from '@mui/material'
 import React, { createContext, useCallback, useContext, useState } from 'react'
 
 const ThemeContext = createContext();
@@ -9,6 +9,8 @@ export default function CustomThemeProvider({ children }) {
     const toggleDarkMode = useCallback(() => {
         setIsDark((prev) => !prev);
     }, [])
+
+    const isSM = useMediaQuery('(max-width:600px)');
 
     const theme = createTheme({
         status: {
@@ -38,22 +40,32 @@ export default function CustomThemeProvider({ children }) {
                 'sans-serif',
             ].join(','),
             h1: {
-                color: isDark ? '#fff' : '#000', // apply primary color to h1 
+                color: isDark ? '#fff' : '#000',
+                fontSize: isSM ? "2rem" : "2.5rem",
             },
             h2: {
-                color: isDark ? '#fff' : '#000', // apply primary color to h2
+                color: isDark ? '#fff' : '#000',
+                fontSize: isSM ? "1.75rem" : "2rem",
             },
             h3: {
                 color: isDark ? '#fff' : '#000',
+                fontSize: isSM ? "1.5rem" : "1.75rem",
             },
             h4: {
                 color: isDark ? '#fff' : '#000',
+                fontSize: isSM ? "1.25rem" : "1.5rem",
             },
             h5: {
                 color: isDark ? '#fff' : '#000',
+                fontSize: isSM ? "1rem" : "1.25rem",
+            },
+            h6: {
+                color: isDark ? '#fff' : '#000',
+                fontSize: isSM ? "0.875rem" : "1rem",
             },
             body1: {
                 color: isDark ? '#ddd' : '#222',
+                fontSize: isSM ? "0.875rem" : "1rem",
             },
         },
     })
