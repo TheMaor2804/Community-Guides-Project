@@ -14,13 +14,6 @@ export default function CustomThemeProvider({ children }) {
         status: {
             danger: colors.red[500],
         },
-        typography: {
-            fontFamily: [
-                'Arial',
-                'Roboto',
-                'sans-serif',
-            ].join(','),
-        },
         palette: {
             primary: {
                 main: isDark ? "#aa2e25" : "#f44336"
@@ -35,10 +28,15 @@ export default function CustomThemeProvider({ children }) {
                 default: isDark ? colors.grey[900] : colors.grey[100],
                 paper: isDark ? "#424242D9" : colors.grey[200],
                 secondary: isDark ? colors.grey[700] : colors.grey[300],
-                header: isDark ? "#343636BF" : colors.grey[400],
+                header: isDark ? "#343636BF" : "#bdbdbdBF",
             },
         },
         typography: {
+            fontFamily: [
+                'Roboto',
+                'Arial',
+                'sans-serif',
+            ].join(','),
             h1: {
                 color: isDark ? '#fff' : '#000', // apply primary color to h1 
             },
