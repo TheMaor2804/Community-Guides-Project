@@ -1,14 +1,13 @@
 import React from "react";
 import { BottomNavigation, BottomNavigationAction, Paper } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
-import StyleIcon from "@mui/icons-material/Style";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../../routes/routesModel";
 import { useCurrentUser } from "../../users/providers/UserProvider";
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import PortraitIcon from '@mui/icons-material/Portrait';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
+import EmailIcon from '@mui/icons-material/Email';
 
 export default function Footer() {
     const navigate = useNavigate();
@@ -26,11 +25,6 @@ export default function Footer() {
                     icon={<HomeIcon />}
                     onClick={() => navigate(ROUTES.ROOT)}
                 />
-                <BottomNavigationAction
-                    label="About"
-                    icon={<InfoIcon />}
-                    onClick={() => navigate(ROUTES.ABOUT)}
-                />
                 {user ? <BottomNavigationAction
                     label="Favorites"
                     icon={<FavoriteIcon />}
@@ -42,6 +36,16 @@ export default function Footer() {
                     icon={<MenuBookIcon />}
                     onClick={() => navigate(ROUTES.MY_GUIDES)}
                 /> : null}
+                <BottomNavigationAction
+                    label="About"
+                    icon={<InfoIcon />}
+                    onClick={() => navigate(ROUTES.ABOUT)}
+                />
+                <BottomNavigationAction
+                    label="Contact"
+                    icon={<EmailIcon />}
+                    onClick={() => navigate(ROUTES.CONTACT)}
+                />
 
             </BottomNavigation>
         </Paper>
