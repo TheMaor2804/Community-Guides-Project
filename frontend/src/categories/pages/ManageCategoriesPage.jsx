@@ -29,6 +29,14 @@ export default function ManageCategoriesPage() {
             alert('Category name must be at least 2 characters long');
             return;
         }
+        let categoryExists = false;
+        categories.forEach((category) => {
+            if (category.name === categoryName) {
+                categoryExists = true;
+            }
+        });
+        if (categoryExists) return alert('Category already exists');
+
         await handleCreateCategory(categoryName);
     }, [categoryName, handleCreateCategory, getAllCategories]);
 
@@ -80,7 +88,6 @@ export default function ManageCategoriesPage() {
                 }}
 
             />
-            {categoriesError && <FormHelperText error={Boolean(categoriesError)}>{categoriesError.message}</FormHelperText>}
             <Button
                 variant='contained'
                 color="warning"
