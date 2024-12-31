@@ -1,10 +1,7 @@
-import React, { useState } from 'react'
-import Logged from '../top-navigation/Logged'
-import NotLogged from '../top-navigation/NotLogged'
-import { Box, Button, Grid2, Typography, useMediaQuery } from '@mui/material'
+import React from 'react'
+import { Box, Button, Typography, useMediaQuery } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
-import { useCurrentUser } from '../../../users/providers/UserProvider';
 import MoreButton from './MoreButton';
 
 export default function RightNavbar() {
