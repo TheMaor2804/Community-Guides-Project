@@ -1,19 +1,13 @@
 import MuiMenu from "@mui/material/Menu";
 import Box from "@mui/material/Box";
 import { useCurrentUser } from "../../../users/providers/UserProvider";
-import useUsers from "../../../users/hooks/useUsers";
 import ROUTES from "../../../routes/routesModel";
 import MenuLink from "../../../routes/components/MenuLink";
+import NavBarItem from "../../../routes/components/NavbarItem";
 
 
 const Menu = ({ isOpen, anchorEl, onClose }) => {
   const { user } = useCurrentUser();
-  const { handleLogout } = useUsers();
-
-  const onLogout = () => {
-    handleLogout();
-    onClose();
-  };
 
   return (
     <MuiMenu
@@ -33,33 +27,33 @@ const Menu = ({ isOpen, anchorEl, onClose }) => {
       <Box
         sx={{ display: "flex", flexDirection: "column" }}
       >
-
-        {!user && (
-          <>
-            <MenuLink
-              text="login"
-              to={ROUTES.LOGIN}
-              onClick={onClose}
-              styles={{ display: { xs: "block", md: "none" } }}
-            />
-            <MenuLink
-              text="signup"
-              to={ROUTES.SIGNUP}
-              onClick={onClose}
-              styles={{ display: { xs: "block", md: "none" } }}
-            />
-          </>
-        )}
-        {user && (
-          <>
-            <MenuLink
-              text="logout"
-              to={ROUTES.ROOT}
-              onClick={onLogout}
-              styles={{ display: { xs: "block", md: "none" } }}
-            />
-          </>
-        )}
+        <NavBarItem
+          to={ROUTES.ABOUT}
+          label="About"
+          onClick={onClose}
+        />
+        <NavBarItem
+          to={ROUTES.CONTACT}
+          label="Contact"
+          onClick={onClose}
+        />
+        {user && <NavBarItem
+          label={"Create Guide"}
+          to={ROUTES.CREATE_GUIDE}
+          onClick={onClose}
+        />}
+        {user && user.isAdmin &&
+          <NavBarItem
+            label={"CRM"}
+            to={ROUTES.CRM}
+            onClick={onClose}
+          />}
+        {user && (user.isMod || user.isAdmin) &&
+          <NavBarItem
+            label={"Mod Page"}
+            to={ROUTES.MOD_PAGE}
+            onClick={onClose}
+          />}
       </Box>
     </MuiMenu>
   );

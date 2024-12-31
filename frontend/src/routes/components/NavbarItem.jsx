@@ -8,12 +8,16 @@ export default function NavBarItem({
     typographySx,
     typographyVariant = "h5",
     label,
-    variant = "text"
+    variant = "text",
+    onClick
 }) {
 
     return (
         <NavBarLink to={to} sx={sx}>
-            <Button color="inherit" variant={variant}
+            <Button
+                color="inherit"
+                variant={variant}
+                onClick={onClick}
                 sx={{ textTransform: "none" }}
             >
                 <Typography
