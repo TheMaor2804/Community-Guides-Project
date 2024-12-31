@@ -11,7 +11,7 @@ import ErrorPage from '../pages/ErrorPage'
 // import ManageFeaturedGuidesPage from '../crm/pages/ManageFeaturedGuidesPage'
 // import ManageUsersPage from '../crm/pages/ManageUsersPage'
 // import ModPage from '../guides/pages/ModPage'
-// import ManageCategoriesPage from '../categories/pages/ManageCategoriesPage'
+import ManageCategoriesPage from '../categories/pages/ManageCategoriesPage'
 
 export default function Router() {
 
@@ -21,13 +21,14 @@ export default function Router() {
             <Route path={ROUTES.CREATE_GUIDE} element={<CreateGuidePage />} />
             <Route path={ROUTES.ABOUT} element={<div>About</div>} />
 
-            <Route path={ROUTES.MANAGE_CATEGORIES} element={<ManageCategoriesPage />} />
+            
             <Route path={ROUTES.GUIDE + '/:id'} element={<GuidePage />} />
             <Route path={ROUTES.CRM} element={<CRMPage />} />
             <Route path={ROUTES.MANAGE_FEATURED_GUIDES} element={<ManageFeaturedGuidesPage />} />
             <Route path={ROUTES.MANAGE_USERS} element={<ManageUsersPage />} />
             <Route path={ROUTES.MOD_PAGE} element={<ModPage />} />
             */}
+            <Route path={ROUTES.MANAGE_CATEGORIES} element={<ManageCategoriesPage />} />
             <Route path={ROUTES.LOGIN} element={<LoginPage />} />
             <Route path={ROUTES.SIGNUP} element={<SignupPage />} />
 
