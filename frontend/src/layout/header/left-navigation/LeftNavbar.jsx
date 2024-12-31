@@ -14,8 +14,8 @@ export default function LeftNavbar() {
     return (
         <Box sx={{ display: 'block', width: "33.33333%" }}>
             {/* <NavBarItem label={"Guides"} to={ROUTES.ROOT} /> */}
-            <IconButton>
-                <img src="/images/logo.jpg" alt="logo" style={{ width: "50px", height: "50px" }} onClick={() => navigate(ROUTES.ROOT)} />
+            <IconButton onClick={() => navigate(ROUTES.ROOT)}>
+                <img src="/images/logo.jpg" alt="logo" style={{ width: "50px", height: "50px" }} />
             </IconButton>
             {user && user.isAdmin && <NavBarItem label={"CRM"} to={ROUTES.CRM} />}
             {user && (user.isMod || user.isAdmin) && <NavBarItem label={"Mod Page"} to={ROUTES.MOD_PAGE} />}
