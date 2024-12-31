@@ -12,7 +12,7 @@ export default function ErrorPage() {
             sx={{
                 textAlign: 'center',
                 backgroundColor: theme.palette.background.default,
-                height: "100vw",
+                height: "100vh",
                 width: "100%",
                 color: "#fff",
                 pt: 20,

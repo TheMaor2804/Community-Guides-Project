@@ -17,33 +17,32 @@ export default function Footer() {
     return (
         <Paper
             elevation={3}
-            sx={{ position: "sticky", bottom: 0, left: 0, right: 0, zIndex: 1 }}
+            sx={{ flexWrap: "wrap", position: "sticky", bottom: 0, left: 0, right: 0, zIndex: 1 }}
         >
             <BottomNavigation showLabels>
-                <BottomNavigationAction
-                    label="Home"
-                    icon={<HomeIcon />}
-                    onClick={() => navigate(ROUTES.ROOT)}
-                />
-                {user ? <BottomNavigationAction
-                    label="Favorites"
-                    icon={<FavoriteIcon />}
-                    onClick={() => navigate(ROUTES.FAV_GUIDES)}
-                /> : null}
+                {user &&
+                    <BottomNavigationAction
+                        label="Favorites"
+                        icon={<FavoriteIcon sx={{ fontSize: 30 }} />}
+                        onClick={() => navigate(ROUTES.FAV_GUIDES)} />
+                }
 
-                {user ? <BottomNavigationAction
-                    label="My Guides"
-                    icon={<MenuBookIcon />}
-                    onClick={() => navigate(ROUTES.MY_GUIDES)}
-                /> : null}
+                {user &&
+                    <BottomNavigationAction
+                        label="My Guides"
+                        icon={<MenuBookIcon
+                            sx={{ fontSize: 30 }} />}
+                        onClick={() => navigate(ROUTES.MY_GUIDES)} />
+                }
+
                 <BottomNavigationAction
                     label="About"
-                    icon={<InfoIcon />}
-                    onClick={() => navigate(ROUTES.ABOUT)}
-                />
+                    icon={<InfoIcon sx={{ fontSize: 30 }} />}
+                    onClick={() => navigate(ROUTES.ABOUT)} />
+
                 <BottomNavigationAction
                     label="Contact"
-                    icon={<EmailIcon />}
+                    icon={<EmailIcon sx={{ fontSize: 30 }} />}
                     onClick={() => navigate(ROUTES.CONTACT)}
                 />
 
