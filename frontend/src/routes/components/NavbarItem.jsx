@@ -6,7 +6,7 @@ export default function NavBarItem({
     to,
     sx,
     typographySx,
-    typographyVariant = "h6",
+    typographyVariant = "h5",
     label,
     variant = "text"
 }) {
