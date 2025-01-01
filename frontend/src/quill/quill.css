@@ -1,0 +1,55 @@
+/* custom.css */
+:root {
+    --quill-background: #212121;
+    --quill-icon-color: #fff;
+    --quill-hover-color: #555;
+    --quill-selected-color: #666;
+    --quill-border-color: #545454;
+}
+
+.ql-toolbar.ql-snow {
+    border-color: var(--quill-border-color);
+    border-radius: 4px 4px 0 0;
+}
+
+.ql-container.ql-snow {
+    border-color: var(--quill-border-color);
+    border-radius: 0 0 4px 4px;
+}
+
+.ql-snow .ql-fill {
+    fill: var(--quill-icon-color);
+}
+
+.ql-snow .ql-stroke {
+    stroke: var(--quill-icon-color);
+}
+
+.ql-snow .ql-picker {
+    color: var(--quill-icon-color);
+}
+
+.ql-snow .ql-picker-options {
+    background-color: var(--quill-background);
+}
+
+.ql-editor {
+    font-family: Arial, sans-serif;
+}
+
+.ql-editor h1 {
+    font-size: 2.2rem !important;
+}
+
+.ql-editor h2 {
+    font-size: 2rem !important;
+}
+
+.ql-editor p {
+    font-size: 1.8rem !important;
+}
+
+.ql-editor ul,
+.ql-editor ol {
+    font-size: 1.8rem;
+}

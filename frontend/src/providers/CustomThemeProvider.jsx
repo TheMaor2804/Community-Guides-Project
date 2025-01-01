@@ -24,7 +24,10 @@ export default function CustomThemeProvider({ children }) {
                 main: isDark ? "#00a152" : "#00e676"
             },
             error: {
-                main: colors.red[600]
+                main: isDark ? colors.red[800] : colors.red[400]
+            },
+            success: {
+                main: isDark ? colors.green[800] : colors.green[400]
             },
             background: {
                 default: isDark ? colors.grey[900] : colors.grey[100],

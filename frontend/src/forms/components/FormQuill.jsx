@@ -3,7 +3,7 @@ import React from 'react'
 import ReactQuill from 'react-quill-new'
 import 'quill/dist/quill.snow.css'; // Default Snow theme
 import '../../quill/quill.css' // Your custom styles
-import QuillEditor from '../../quill/QuillEditor';
+
 
 
 export default function FormQuill({

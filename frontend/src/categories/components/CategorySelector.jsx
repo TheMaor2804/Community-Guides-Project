@@ -1,4 +1,4 @@
-import { CircularProgress, Container, FormControl, Grid2, MenuItem, Select } from '@mui/material'
+import { CircularProgress, Container, FormControl, Grid2, MenuItem, Select, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import Guides from '../../guides/components/Guides';
 import Spinner from '../../components/Spinner';
@@ -39,6 +39,7 @@ export default function CategorySelector({ categories, guides, guidesError, guid
             alignItems: 'center',
             width: '100%',
         }}>
+            <Typography variant='h4'>Select a Category</Typography>
             <Select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}

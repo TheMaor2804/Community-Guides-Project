@@ -11,15 +11,16 @@ export default function RightNavbar() {
 
     return (
         <Box sx={{ display: "flex", width: "33.33333%", justifyContent: "flex-end" }}>
-            {isSM ? <MoreButton /> : <Button
-                variant='contained'
-                color='success'
-                size='small'
-                onClick={() => navigate('/create-guide')}
-                endIcon={<AddIcon sx={{ fontSize: 10 }} />}
-            >
-                <Typography variant='h6'>Create a Guide</Typography>
-            </Button>}
+            {isSM ? <MoreButton /> :
+                <Button
+                    variant='contained'
+                    color='success'
+                    size='small'
+                    onClick={() => navigate('/create-guide')}
+                    endIcon={<AddIcon sx={{ fontSize: 10 }} />}
+                >
+                    <Typography variant='h6'>Make a Guide</Typography>
+                </Button>}
         </Box>
     )
 }

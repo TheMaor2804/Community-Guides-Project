@@ -5,8 +5,6 @@ import CategorySelector from '../categories/components/CategorySelector';
 import useGuides from '../guides/hooks/useGuides';
 import Guides from '../guides/components/Guides';
 import { Link } from 'react-router-dom';
-import useNews from '../news/hooks/useNews';
-import News from '../news/components/News';
 
 export default function HomePage() {
 
@@ -44,31 +42,6 @@ export default function HomePage() {
                 backgroundPosition: 'center',
             }}
         >
-
-            {/* NEWS section */}
-
-            <Container
-                sx={{
-                    display: 'flex',
-                    alignItems: "center",
-                    backgroundColor: theme.palette.background.paper,
-                    borderRadius: 2,
-                    justifyContent: "center",
-                    gap: 2,
-                    flexDirection: "column",
-                    py: 3,
-                }}
-            >
-                <Typography variant="h4" sx={{ width: "100%", textAlign: "center" }}>
-                    News
-                </Typography>
-                <News
-                    news={news}
-                    isLoading={newsIsLoading}
-                    error={newsError}
-                />
-            </Container>
-
             {/* FEATURED section */}
 
             <Container
@@ -92,16 +65,6 @@ export default function HomePage() {
                         error={guidesError} />
                 </Grid2>
             </Container>
-
-            {/* REFERRAL section */}
-            <Link
-                to="https://www.ashesofcreation.com/r/WXPGKABHUUK2NWVP" target="_blank" rel="noopener noreferrer" >
-                <img
-                    style={{ maxWidth: "100%" }}
-                    src="./images/referralImg.png"
-                    alt="Referral" />
-            </Link>
-
 
             {/* CATEGORY section */}
 
