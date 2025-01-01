@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import { Grid2 } from "@mui/material";
 import { makeFirstLetterCapital } from "../../utils/algoMethods";
+import { useCustomTheme } from "../../providers/CustomThemeProvider";
 
 const Input = ({
     variant = "outlined",
@@ -14,6 +15,8 @@ const Input = ({
     onChange,
     ...rest
 }) => {
+
+    const { isDark } = useCustomTheme();
 
     return (
         <Grid2 item="true" size={{ xs: 12 }} {...rest}>
@@ -30,7 +33,10 @@ const Input = ({
                 onChange={onChange}
                 fullWidth
                 autoComplete="off"
-                slotProps={{ inputLabel: { shrink: true, } }}
+                slotProps={{
+                    inputLabel: { shrink: true, },
+                }}
+                sx={{ input: { color: isDark ? 'white' : 'black' } }}
             />
         </Grid2>
     );

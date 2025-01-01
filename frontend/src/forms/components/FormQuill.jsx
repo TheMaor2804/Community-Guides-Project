@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material'
-import React from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import ReactQuill from 'react-quill-new'
 import 'quill/dist/quill.snow.css'; // Default Snow theme
 import '../../quill/quill.css'
@@ -11,19 +11,21 @@ export default function FormQuill({
     onChange,
     modules,
     formats,
-    error
+    error,
+    onContentLengthChange,
 }) {
 
     const { isDark } = useCustomTheme();
-    const quillRef = React.useRef(null);
-    const [contentLength, setContentLength] = React.useState(1);
+    const quillRef = useRef(null);
+    const [contentLength, setContentLength] = useState(0);
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (quillRef.current) {
-            setContentLength(quillRef.current.getEditor().getLength() - 1);
+            const length = quillRef.current.getEditor().getLength() - 1;
+            setContentLength(length);
+            onContentLengthChange(length);
         }
-    }, [data, name]);
-
+    }, [data, onContentLengthChange]);
 
     return (
         <Box
@@ -38,14 +40,9 @@ export default function FormQuill({
                 modules={modules}
                 formats={formats}
             />
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 1 }}>
-                <Typography variant="caption"  >
-                    {contentLength} characters
-                </Typography>
-                <Typography variant="caption" color="error" >
-                    {error}
-                </Typography>
-            </Box>
+            <Typography variant="caption" color="error" >
+                {error}
+            </Typography>
         </Box>
     )
 }

@@ -20,12 +20,10 @@ const Form = ({
     error,
     children,
     isLoading,
+    isSubmitDisabled = false,
 }) => {
-
     const navigate = useNavigate();
-
     const { isDark } = useCustomTheme();
-
     const [submissionError, setSubmissionError] = useState(error?.message);
 
     useEffect(() => {
@@ -38,7 +36,6 @@ const Form = ({
     return (
         <Box
             component="form"
-            color={isDark ? 'white' : 'black'}
             sx={{ mt: 2, p: { xs: 1, sm: 2 }, ...styles }}
             onSubmit={onSubmit}
             autoComplete="off"
@@ -74,13 +71,12 @@ const Form = ({
                     <FormButton
                         node={node}
                         onClick={onSubmit}
-                        disabled={!validateForm()}
+                        disabled={!validateForm() || isSubmitDisabled}
                         size="large"
                         color="secondary"
                     />
                 </Grid2>
                 {error && (<FormHelperText error={Boolean(error)}>{submissionError}</FormHelperText>)}
-
             </Grid2>
         </Box>
     );

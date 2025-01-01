@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Form from '../../forms/components/Form';
 import Input from '../../forms/components/Input';
 import { defaultModules } from '../../quill/modules';
 import { defaultFormats } from '../../quill/formats';
 import FormSelect from '../../forms/components/FormSelect';
 import FormQuill from '../../forms/components/FormQuill';
+import { Typography } from '@mui/material';
 
 export default function CreateGuideForm({
     onSubmit,
@@ -18,6 +19,11 @@ export default function CreateGuideForm({
     onInputChange,
     categories,
 }) {
+    const [contentLength, setContentLength] = useState(0);
+
+    const handleContentLengthChange = (length) => {
+        setContentLength(length);
+    };
 
     return (
         <>
@@ -30,6 +36,7 @@ export default function CreateGuideForm({
                 isLoading={isLoading}
                 node='Create'
                 styles={{ maxWidth: "800px" }}
+                isSubmitDisabled={contentLength < 50}
             >
                 <Input
                     name="title"
@@ -64,9 +71,14 @@ export default function CreateGuideForm({
                     onChange={onInputChange}
                     modules={defaultModules}
                     formats={defaultFormats}
+                    onContentLengthChange={handleContentLengthChange}
                 />
+                {contentLength < 50 && (
+                    <Typography variant="caption" color="error">
+                        Content must be at least 50 characters long.
+                    </Typography>
+                )}
             </Form>
-
         </>
-    )
+    );
 }

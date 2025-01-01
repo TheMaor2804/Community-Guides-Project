@@ -35,6 +35,10 @@ export default function CustomThemeProvider({ children }) {
                 secondary: isDark ? colors.grey[700] : colors.grey[300],
                 header: isDark ? "#343636BF" : "#bdbdbdBF",
             },
+            action: {
+                disabledBackground: isDark ? colors.grey[800] : colors.grey[300],
+                disabled: isDark ? colors.grey[400] : colors.grey[600],
+            }
         },
         typography: {
             fontFamily: [

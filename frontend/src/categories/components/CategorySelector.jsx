@@ -3,12 +3,15 @@ import React, { useEffect, useState } from 'react'
 import Guides from '../../guides/components/Guides';
 import Spinner from '../../components/Spinner';
 import Error from '../../components/Error';
+import { useCustomTheme } from '../../providers/CustomThemeProvider';
 
 export default function CategorySelector({ categories, guides, guidesError, guidesIsLoading, categoriesError, categoriesIsLoading }) {
 
     const [filteredGuides, setFilteredGuides] = useState([])
 
     const [selectedCategory, setSelectedCategory] = useState('')
+
+    const { isDark } = useCustomTheme();
 
     useEffect(() => {
         if (categories && categories.length > 0) {
@@ -43,6 +46,7 @@ export default function CategorySelector({ categories, guides, guidesError, guid
             <Select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
+                sx={{ color: isDark ? "white" : "black" }}
             >
                 {categories.map(category => (
                     <MenuItem key={category._id} value={category._id}>

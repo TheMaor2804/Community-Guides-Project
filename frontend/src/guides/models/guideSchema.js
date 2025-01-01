@@ -2,8 +2,7 @@ import Joi from "joi";
 
 const guideSchema = {
     title: Joi.string().min(2).max(256).required(),
-    content: Joi.string().min(50).required().messages({
-        'string.min': 'Content is not long enough.',
+    content: Joi.string().required().messages({
         'any.required': 'Content is required.',
     }),
     category: Joi.string().length(24).required(),
