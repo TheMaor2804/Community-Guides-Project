@@ -1,5 +1,5 @@
 import React from "react";
-import { BottomNavigation, BottomNavigationAction, Paper } from "@mui/material";
+import { BottomNavigation, BottomNavigationAction, Paper, Switch } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../../routes/routesModel";
@@ -8,9 +8,15 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import EmailIcon from '@mui/icons-material/Email';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import { useState } from 'react';
+import { useCustomTheme } from "../../providers/CustomThemeProvider";
 
 export default function Footer() {
     const navigate = useNavigate();
+
+    const { isDark, toggleDarkMode } = useCustomTheme();
 
     const { user } = useCurrentUser();
 
@@ -45,8 +51,14 @@ export default function Footer() {
                     icon={<EmailIcon sx={{ fontSize: 30 }} />}
                     onClick={() => navigate(ROUTES.CONTACT)}
                 />
-
+                <BottomNavigationAction
+                    label={"Switch To " + (isDark ? "Light" : "Dark") + " Mode"}
+                    icon={isDark ? <LightModeIcon /> : <DarkModeIcon />}
+                    onClick={toggleDarkMode}
+                />
             </BottomNavigation>
+
+
         </Paper>
     );
 }
