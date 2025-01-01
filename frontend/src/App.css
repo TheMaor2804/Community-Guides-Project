@@ -6,14 +6,6 @@
   box-sizing: border-box;
 }
 
-.ql-editor {
-  color: white;
-}
-
-.ql-toolbar {
-  color: white !important;
-}
-
 .content-container {
   font-family: 'Arial', sans-serif;
   word-break: break-word;

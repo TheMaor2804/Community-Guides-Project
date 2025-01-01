@@ -7,29 +7,29 @@
     --quill-border-color: #545454;
 }
 
-.ql-toolbar.ql-snow {
+.dark .ql-toolbar.ql-snow {
     border-color: var(--quill-border-color);
     border-radius: 4px 4px 0 0;
 }
 
-.ql-container.ql-snow {
+.dark .ql-container.ql-snow {
     border-color: var(--quill-border-color);
     border-radius: 0 0 4px 4px;
 }
 
-.ql-snow .ql-fill {
+.dark .ql-snow .ql-fill {
     fill: var(--quill-icon-color);
 }
 
-.ql-snow .ql-stroke {
+.dark .ql-snow .ql-stroke {
     stroke: var(--quill-icon-color);
 }
 
-.ql-snow .ql-picker {
+.dark .ql-snow .ql-picker {
     color: var(--quill-icon-color);
 }
 
-.ql-snow .ql-picker-options {
+.dark .ql-snow .ql-picker-options {
     background-color: var(--quill-background);
 }
 

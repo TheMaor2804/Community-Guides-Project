@@ -1,4 +1,3 @@
-import Quill from 'quill';
 
 const defaultModules = {
     toolbar: [
@@ -9,6 +8,7 @@ const defaultModules = {
         [{ 'align': [] }],
         [{
             'color': [
+                "#000000",
                 "#FFFFFF",
                 "#FF0000",
                 "#00FF00",

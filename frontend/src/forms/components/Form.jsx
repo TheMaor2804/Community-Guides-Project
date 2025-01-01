@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import LoopIcon from "@mui/icons-material/Loop";
 import { FormHelperText, Grid2 } from "@mui/material";
 import Spinner from "../../components/Spinner";
+import { useCustomTheme } from "../../providers/CustomThemeProvider";
 
 const Form = ({
     title = "",
@@ -13,7 +14,6 @@ const Form = ({
     onReset,
     validateForm,
     to = "/",
-    color = "white",
     spacing = 1,
     styles = {},
     node = 'Submit',
@@ -23,6 +23,8 @@ const Form = ({
 }) => {
 
     const navigate = useNavigate();
+
+    const { isDark } = useCustomTheme();
 
     const [submissionError, setSubmissionError] = useState(error?.message);
 
@@ -36,7 +38,7 @@ const Form = ({
     return (
         <Box
             component="form"
-            color={color}
+            color={isDark ? 'white' : 'black'}
             sx={{ mt: 2, p: { xs: 1, sm: 2 }, ...styles }}
             onSubmit={onSubmit}
             autoComplete="off"
