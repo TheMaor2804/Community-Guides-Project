@@ -16,7 +16,6 @@ router.get("/", async (req, res) => {
     }
 });
 
-
 router.get("/myGuides", auth, async (req, res) => {
     try {
         const userInfo = req.user;
