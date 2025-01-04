@@ -44,11 +44,6 @@ export default function CRM() {
                 variant='contained'
             />
             <NavBarItem
-                to={ROUTES.MANAGE_NEWS}
-                label="Manage News"
-                variant='contained'
-            />
-            <NavBarItem
                 to={ROUTES.MANAGE_CATEGORIES}
                 label="Manage Categories"
                 variant='contained'
