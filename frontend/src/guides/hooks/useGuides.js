@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useCurrentUser } from "../../users/providers/UserProvider";
 import useAxios from "../../hooks/useAxios";
-import { approveGuide, createGuide, deleteGuide, downvoteGuide, featureGuide, getGuide, getGuides, updateGuide, upvoteGuide } from "../services/guidesApiService";
+import { approveGuide, createGuide, deleteGuide, downvoteGuide, featureGuide, getGuide, getGuides, handleGetMyGuides, updateGuide, upvoteGuide } from "../services/guidesApiService";
 import ROUTES from "../../routes/routesModel";
 
 export default function useGuides() {
@@ -69,7 +69,7 @@ export default function useGuides() {
     const getMyGuides = useCallback(async () => {
         setIsLoading(true);
         try {
-            const myGuides = await getMyGuides();
+            const myGuides = await handleGetMyGuides();
             setGuides(myGuides);
         } catch (error) {
             setError(error);

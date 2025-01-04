@@ -27,7 +27,7 @@ export const getGuide = async (guideId) => {
     }
 };
 
-export const getMyGuides = async () => {
+export const handleGetMyGuides = async () => {
     try {
         const response = await axios.get(`${API_URL}/myGuides`);
         const data = response.data;
