@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ReactQuill from 'react-quill-new'
 import 'quill/dist/quill.snow.css'; // Default Snow theme
 import '../../quill/quill.css'
