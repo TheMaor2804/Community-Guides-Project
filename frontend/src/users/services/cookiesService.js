@@ -3,7 +3,8 @@ import { jwtDecode } from "jwt-decode";
 const TOKEN = 'token';
 
 export const setTokenInCookies = (jwtToken) => {
-    document.cookie = `${TOKEN}=${jwtToken};path=/`;
+    var date = new Date(); date.setFullYear(date.getFullYear() + 1);
+    document.cookie = `${TOKEN}=${jwtToken};path=/;expires=${date.toUTCString()}`;
 }
 
 export const removeTokenFromCookies = () => {
