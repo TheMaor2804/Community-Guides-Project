@@ -25,13 +25,18 @@ export default function Footer() {
     return (
         <Paper
             elevation={3}
-            sx={{ flexWrap: "wrap", position: "sticky", bottom: 0, left: 0, right: 0, zIndex: 1 }}
+            sx={{
+                flexWrap: "wrap", position: "sticky", bottom: 0, left: 0, right: 0, zIndex: 1
+            }}
         >
             <BottomNavigation showLabels>
                 {user &&
                     <BottomNavigationAction
                         label="Favorites"
                         icon={<FavoriteIcon sx={{ fontSize: 30 }} />}
+                        sx={{
+                            color: isDark ? 'white' : 'black',
+                        }}
                         onClick={() => navigate(ROUTES.FAV_GUIDES)} />
                 }
 
@@ -40,20 +45,32 @@ export default function Footer() {
                         label="My Guides"
                         icon={<MenuBookIcon
                             sx={{ fontSize: 30 }} />}
+                        sx={{
+                            color: isDark ? 'white' : 'black',
+                        }}
                         onClick={() => navigate(ROUTES.MY_GUIDES)} />
                 }
                 {!isSM && <BottomNavigationAction
                     label="About"
                     icon={<InfoIcon sx={{ fontSize: 30 }} />}
+                    sx={{
+                        color: isDark ? 'white' : 'black',
+                    }}
                     onClick={() => navigate(ROUTES.ABOUT)} />}
                 {!isSM && <BottomNavigationAction
                     label="Contact"
                     icon={<EmailIcon sx={{ fontSize: 30 }} />}
+                    sx={{
+                        color: isDark ? 'white' : 'black',
+                    }}
                     onClick={() => navigate(ROUTES.CONTACT)}
                 />}
                 <BottomNavigationAction
                     label={"Switch To " + (isDark ? "Light" : "Dark") + " Mode"}
                     icon={isDark ? <LightModeIcon /> : <DarkModeIcon />}
+                    sx={{
+                        color: isDark ? 'white' : 'black',
+                    }}
                     onClick={toggleDarkMode}
                 />
             </BottomNavigation>
