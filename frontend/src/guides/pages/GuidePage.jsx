@@ -30,7 +30,7 @@ export default function GuidePage() {
                 navigate(location.state?.from || ROUTES.ROOT);
             }
         }
-    }, [user, guide]);
+    }, [user, guide, guidesIsLoading]);
 
     const handleUpvote = useCallback(async () => {
         await handleUpvoteGuide(guide._id);

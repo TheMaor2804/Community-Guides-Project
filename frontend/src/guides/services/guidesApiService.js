@@ -7,7 +7,10 @@ export const getGuides = async () => {
         const data = response.data;
         return data;
     } catch (error) {
-        throw new Error(error.message);
+        if (error.response) {
+            throw new Error(error.response.data);
+        }
+        else throw new Error(error.message);
     }
 }
 
@@ -17,7 +20,10 @@ export const getGuide = async (guideId) => {
         const data = response.data;
         return data;
     } catch (error) {
-        throw new Error(error.message);
+        if (error.response) {
+            throw new Error(error.response.data);
+        }
+        else throw new Error(error.message);
     }
 };
 
@@ -27,7 +33,10 @@ export const getMyGuides = async () => {
         const data = response.data;
         return data;
     } catch (error) {
-        throw new Error(error.message);
+        if (error.response) {
+            throw new Error(error.response.data);
+        }
+        else throw new Error(error.message);
     }
 };
 
@@ -36,7 +45,10 @@ export const createGuide = async (guide) => {
         const { data } = await axios.post(API_URL, guide);
         return data;
     } catch (error) {
-        throw new Error(error.message);
+        if (error.response) {
+            throw new Error(error.response.data);
+        }
+        else throw new Error(error.message);
     }
 };
 
@@ -45,7 +57,10 @@ export const updateGuide = async (guideId, guide) => {
         const { data } = await axios.put(`${API_URL}/${guideId}`, guide);
         return data;
     } catch (error) {
-        throw new Error(error.message);
+        if (error.response) {
+            throw new Error(error.response.data);
+        }
+        else throw new Error(error.message);
     }
 };
 
@@ -54,7 +69,10 @@ export const deleteGuide = async (guideId) => {
         const { data } = await axios.delete(`${API_URL}/${guideId}`);
         return data;
     } catch (error) {
-        throw new Error(error.message);
+        if (error.response) {
+            throw new Error(error.response.data);
+        }
+        else throw new Error(error.message);
     }
 };
 
@@ -63,7 +81,10 @@ export const upvoteGuide = async (guideId) => {
         const { data } = await axios.patch(`${API_URL}/${guideId}/upvote`);
         return data;
     } catch (error) {
-        throw new Error(error.message);
+        if (error.response) {
+            throw new Error(error.response.data);
+        }
+        else throw new Error(error.message);
     }
 };
 export const downvoteGuide = async (guideId) => {
@@ -71,7 +92,10 @@ export const downvoteGuide = async (guideId) => {
         const { data } = await axios.patch(`${API_URL}/${guideId}/downvote`);
         return data;
     } catch (error) {
-        throw new Error(error.message);
+        if (error.response) {
+            throw new Error(error.response.data);
+        }
+        else throw new Error(error.message);
     }
 };
 
@@ -80,7 +104,10 @@ export const approveGuide = async (guideId) => {
         const { data } = await axios.patch(`${API_URL}/${guideId}/approve`);
         return data;
     } catch (error) {
-        throw new Error(error.message);
+        if (error.response) {
+            throw new Error(error.response.data);
+        }
+        else throw new Error(error.message);
     }
 };
 
@@ -89,6 +116,9 @@ export const featureGuide = async (guideId) => {
         const { data } = await axios.patch(`${API_URL}/${guideId}/feature`);
         return data;
     } catch (error) {
-        throw new Error(error.message);
+        if (error.response) {
+            throw new Error(error.response.data);
+        }
+        else throw new Error(error.message);
     }
 };
