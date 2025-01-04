@@ -77,6 +77,17 @@ export default function useGuides() {
         setIsLoading(false);
     }, []);
 
+    const getFavGuides = useCallback(async () => {
+        setIsLoading(true);
+        try {
+            const favGuides = await getFavGuides();
+            setGuides(favGuides);
+        } catch (error) {
+            setError(error);
+        }
+        setIsLoading(false);
+    }, []);
+
     const getUpvotedGuides = useCallback(async () => {
         setIsLoading(true);
         try {

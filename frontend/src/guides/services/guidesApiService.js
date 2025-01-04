@@ -40,6 +40,19 @@ export const getMyGuides = async () => {
     }
 };
 
+export const getFavGuides = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/favGuides`);
+        const data = response.data;
+        return data;
+    } catch (error) {
+        if (error.response) {
+            throw new Error(error.response.data);
+        }
+        else throw new Error(error.message);
+    }
+};
+
 export const createGuide = async (guide) => {
     try {
         const { data } = await axios.post(API_URL, guide);
