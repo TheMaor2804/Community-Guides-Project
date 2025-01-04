@@ -12,7 +12,7 @@ export const getGuides = async () => {
         }
         else throw new Error(error.message);
     }
-}
+};
 
 export const getGuide = async (guideId) => {
     try {
@@ -40,7 +40,7 @@ export const handleGetMyGuides = async () => {
     }
 };
 
-export const getFavGuides = async () => {
+export const handleGetFavGuides = async () => {
     try {
         const response = await axios.get(`${API_URL}/favGuides`);
         const data = response.data;
@@ -100,6 +100,7 @@ export const upvoteGuide = async (guideId) => {
         else throw new Error(error.message);
     }
 };
+
 export const downvoteGuide = async (guideId) => {
     try {
         const { data } = await axios.patch(`${API_URL}/${guideId}/downvote`);

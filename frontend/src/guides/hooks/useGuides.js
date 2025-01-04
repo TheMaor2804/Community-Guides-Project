@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useCurrentUser } from "../../users/providers/UserProvider";
 import useAxios from "../../hooks/useAxios";
-import { approveGuide, createGuide, deleteGuide, downvoteGuide, featureGuide, getGuide, getGuides, handleGetMyGuides, updateGuide, upvoteGuide } from "../services/guidesApiService";
+import { approveGuide, createGuide, deleteGuide, downvoteGuide, featureGuide, getGuide, getGuides, handleGetFavGuides, handleGetMyGuides, updateGuide, upvoteGuide } from "../services/guidesApiService";
 import ROUTES from "../../routes/routesModel";
 
 export default function useGuides() {
@@ -80,7 +80,7 @@ export default function useGuides() {
     const getFavGuides = useCallback(async () => {
         setIsLoading(true);
         try {
-            const favGuides = await getFavGuides();
+            const favGuides = await handleGetFavGuides();
             setGuides(favGuides);
         } catch (error) {
             setError(error);
@@ -180,6 +180,7 @@ export default function useGuides() {
         getAllUnapprovedGuides,
         getGuideById,
         getMyGuides,
+        getFavGuides,
         getUpvotedGuides,
         handleCreateGuide,
         handleUpdateGuide,

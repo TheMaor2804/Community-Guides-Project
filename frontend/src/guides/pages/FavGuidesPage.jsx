@@ -1,7 +1,19 @@
-import { Container, useTheme } from '@mui/material'
-import React from 'react'
+import { Container, Typography, useTheme } from '@mui/material'
+import React, { useEffect } from 'react'
+import CategorySelector from '../../categories/components/CategorySelector';
+import useGuides from '../hooks/useGuides';
+import useCategories from '../../categories/hooks/useCategories';
 
 export default function FavGuidesPage() {
+    const { guides, getFavGuides, guidesIsLoading, guidesError } = useGuides()
+
+    const { categories, getAllCategories, categoriesIsLoading, categoriesError } = useCategories();
+
+    useEffect(() => {
+        getAllCategories();
+        getFavGuides();
+    }, [])
+
     const theme = useTheme();
     return (
         <Container
@@ -24,7 +36,31 @@ export default function FavGuidesPage() {
                 backgroundPosition: 'center',
             }}
         >
+            <Container
+                sx={{
+                    display: 'flex',
+                    flexDirection: "column",
+                    gap: 2,
+                    justifyContent: "flex-start",
+                    alignItems: "center",
+                    backgroundColor: theme.palette.background.paper,
+                    borderRadius: 2,
+                    py: 3,
+                }}
+            >
+                <Typography variant="h4" sx={{ width: "100%", textAlign: "center" }}>
+                    Favorite Guides
+                </Typography>
 
+                <CategorySelector
+                    categories={categories}
+                    guides={guides}
+                    guidesError={guidesError}
+                    guidesIsLoading={guidesIsLoading}
+                    categoriesError={categoriesError}
+                    categoriesIsLoading={categoriesIsLoading}
+                />
+            </Container>
         </Container>
     )
 }

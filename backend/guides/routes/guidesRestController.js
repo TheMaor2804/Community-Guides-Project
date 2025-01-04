@@ -1,5 +1,5 @@
 const express = require("express");
-const { getGuides, getGuideById, getMyGuides, createGuide, deleteGuide, updateGuide, upvoteGuide, downvoteGuide, approveGuide, featureGuide } = require("../models/guidesAccessDataService");
+const { getGuides, getGuideById, getMyGuides, createGuide, deleteGuide, updateGuide, upvoteGuide, downvoteGuide, approveGuide, featureGuide, getFavoriteGuides } = require("../models/guidesAccessDataService");
 const normalizeGuide = require("../helpers/normalizeGuide");
 const { handleError } = require("../../utils/handleErrors");
 const auth = require("../../auth/authService");
