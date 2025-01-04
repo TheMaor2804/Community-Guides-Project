@@ -12,6 +12,8 @@ import ManageFeaturedGuidesPage from '../crm/pages/ManageFeaturedGuidesPage'
 import ManageUsersPage from '../crm/pages/ManageUsersPage'
 import ModPage from '../guides/pages/ModPage'
 import ManageCategoriesPage from '../categories/pages/ManageCategoriesPage'
+import MyGuidesPage from '../guides/pages/MyGuidesPage'
+import FavGuidesPage from '../guides/pages/FavGuidesPage'
 
 export default function Router() {
 
@@ -21,6 +23,8 @@ export default function Router() {
             <Route path={ROUTES.CREATE_GUIDE} element={<CreateGuidePage />} />
             <Route path={ROUTES.ABOUT} element={<div>About</div>} />
             <Route path={ROUTES.GUIDE + '/:id'} element={<GuidePage />} />
+            <Route path={ROUTES.MY_GUIDES} element={<MyGuidesPage />} />
+            <Route path={ROUTES.FAV_GUIDES} element={<FavGuidesPage />} />
             <Route path={ROUTES.CRM} element={<CRMPage />} />
             <Route path={ROUTES.MANAGE_FEATURED_GUIDES} element={<ManageFeaturedGuidesPage />} />
             <Route path={ROUTES.MANAGE_USERS} element={<ManageUsersPage />} />
