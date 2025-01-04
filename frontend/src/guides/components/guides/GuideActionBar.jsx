@@ -7,8 +7,11 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ROUTES from '../../../routes/routesModel';
+import { useCustomTheme } from '../../../providers/CustomThemeProvider';
 
 export default function GuideActionBar({ guideId, upvotes, downvotes, handleUpvote, handleDownvote }) {
+
+    const { isDark } = useCustomTheme();
 
     const { user } = useCurrentUser();
 
@@ -18,7 +21,7 @@ export default function GuideActionBar({ guideId, upvotes, downvotes, handleUpvo
     const [upvoteAmount, setUpvoteAmount] = useState(upvotes?.length);
     const [downvoteAmount, setDownvoteAmount] = useState(downvotes?.length);
 
-    const [ratioColor, setRatioColor] = useState("white");
+    const [ratioColor, setRatioColor] = useState(isDark ? "white" : "black");
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -35,39 +38,43 @@ export default function GuideActionBar({ guideId, upvotes, downvotes, handleUpvo
         } else if (downvoteAmount > upvoteAmount) {
             setRatioColor("red")
         } else {
-            setRatioColor("white")
+            setRatioColor(isDark ? "white" : "black")
         }
-    }, [upvoteAmount, downvoteAmount]);
+    }, [upvoteAmount, downvoteAmount, isDark]);
 
     const handleDisplayUpvote = useCallback(() => {
         noUserReroute();
-        if (isDownvoted) {
-            handleDisplayDownvote();
-        }
         setIsUpvoted((prev) => {
             if (prev) {
-                setUpvoteAmount((prev) => prev - 1)
+                setUpvoteAmount((prev) => prev - 1);
+                return false;
             } else {
-                setUpvoteAmount((prev) => prev + 1)
+                setUpvoteAmount((prev) => prev + 1);
+                if (isDownvoted) {
+                    setDownvoteAmount((prev) => prev - 1);
+                    setIsDownvoted(false);
+                }
+                return true;
             }
-            return !prev
-        })
-    }, [guideId, handleUpvote, isDownvoted]);
+        });
+    }, [isDownvoted, noUserReroute]);
 
     const handleDisplayDownvote = useCallback(() => {
         noUserReroute();
-        if (isUpvoted) {
-            handleDisplayUpvote();
-        }
         setIsDownvoted((prev) => {
             if (prev) {
-                setDownvoteAmount((prev) => prev - 1)
+                setDownvoteAmount((prev) => prev - 1);
+                return false;
             } else {
-                setDownvoteAmount((prev) => prev + 1)
+                setDownvoteAmount((prev) => prev + 1);
+                if (isUpvoted) {
+                    setUpvoteAmount((prev) => prev - 1);
+                    setIsUpvoted(false);
+                }
+                return true;
             }
-            return !prev
-        })
-    }, [guideId, handleDownvote, isUpvoted]);
+        });
+    }, [isUpvoted, noUserReroute]);
 
 
     return (

@@ -83,8 +83,6 @@ export default function GuidePage() {
                     <Box className={"content-container"} dangerouslySetInnerHTML={{ __html: guide.content }}
                         sx={{ mt: 2 }} />
                     <GuideActionBar guideId={guide._id} upvotes={guide.upvotes} downvotes={guide.downvotes} handleUpvote={handleUpvote} handleDownvote={handleDownvote} />
-                    {guide.linkedBuild &&
-                        <Button variant='contained' color='primary' onClick={() => navigate('https://aoc-builds.com/build/' + guide.linkedBuild)}>Featured Build</Button>}
                     {guide.youtubeUrl && (
                         <Box sx={{ display: "flex", flexDirection: "column", textAlign: "center", gap: 1, justifyContent: "center" }}>
                             <Typography variant="h3" component="h3">
