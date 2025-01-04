@@ -1,5 +1,5 @@
 import React from "react";
-import { BottomNavigation, BottomNavigationAction, Paper, Switch } from "@mui/material";
+import { BottomNavigation, BottomNavigationAction, Paper, Switch, useMediaQuery } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../../routes/routesModel";
@@ -19,6 +19,8 @@ export default function Footer() {
     const { isDark, toggleDarkMode } = useCustomTheme();
 
     const { user } = useCurrentUser();
+
+    const isSM = useMediaQuery('(max-width: 600px)');
 
     return (
         <Paper
@@ -40,17 +42,15 @@ export default function Footer() {
                             sx={{ fontSize: 30 }} />}
                         onClick={() => navigate(ROUTES.MY_GUIDES)} />
                 }
-
-                <BottomNavigationAction
+                {!isSM && <BottomNavigationAction
                     label="About"
                     icon={<InfoIcon sx={{ fontSize: 30 }} />}
-                    onClick={() => navigate(ROUTES.ABOUT)} />
-
-                <BottomNavigationAction
+                    onClick={() => navigate(ROUTES.ABOUT)} />}
+                {!isSM && <BottomNavigationAction
                     label="Contact"
                     icon={<EmailIcon sx={{ fontSize: 30 }} />}
                     onClick={() => navigate(ROUTES.CONTACT)}
-                />
+                />}
                 <BottomNavigationAction
                     label={"Switch To " + (isDark ? "Light" : "Dark") + " Mode"}
                     icon={isDark ? <LightModeIcon /> : <DarkModeIcon />}
