@@ -37,14 +37,14 @@ const schema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
-    isRejected: {
-        type: Boolean,
-        default: false,
-    },
-    rejectionMessage: {
-        type: String,
-        default: "",
-    },
+    // isRejected: {
+    //     type: Boolean,
+    //     default: false,
+    // },
+    // rejectionMessage: {
+    //     type: String,
+    //     default: "",
+    // },
     createdAt: {
         type: Date,
         default: Date.now,
