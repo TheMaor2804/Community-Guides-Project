@@ -16,7 +16,7 @@ export default function CRM() {
 
     return (
         <Container
-            maxWidth="100%"
+            maxWidth="100vw"
             sx={{
                 display: 'flex',
                 flexDirection: 'column',

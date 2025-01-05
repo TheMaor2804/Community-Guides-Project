@@ -16,14 +16,17 @@ import PortraitIcon from '@mui/icons-material/Portrait';
 import InfoIcon from "@mui/icons-material/Info";
 import SearchIcon from "@mui/icons-material/Search";
 import { useCustomTheme } from "../providers/CustomThemeProvider";
+import { useTheme } from "@mui/material";
 
 
 export default function AboutPage() {
 
+    const theme = useTheme();
+
     const { isDark } = useCustomTheme();
 
     return (
-        <Container sx={{ pt: 20, color: isDark ? "#fff" : "#000" }}>
+        <Container maxWidth="100vw" sx={{ pt: 20, backgroundColor: theme.palette.background.default, color: isDark ? "#fff" : "#000" }}>
             <PageHeader
                 title="About Page"
                 subtitle="On this page you can find explanations about using the application"
