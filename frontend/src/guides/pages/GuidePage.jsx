@@ -135,7 +135,6 @@ export default function GuidePage() {
                         guide={guide}
                         handleDelete={() => handleDialog("open")}
                         handleApprove={handleApproveGuide}
-                        handleReject={handleApproveGuide}
                         handleFeature={handleFeatureGuide}
                     />
                 </CardContent>
