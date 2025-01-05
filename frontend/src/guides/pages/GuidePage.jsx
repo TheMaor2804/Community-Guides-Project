@@ -1,20 +1,23 @@
 import React, { useCallback, useEffect } from 'react'
 import useGuides from '../hooks/useGuides'
-import { Box, Button, Card, CardContent, Container, IconButton, Typography, useTheme } from '@mui/material';
+import { Box, Card, CardContent, Container, IconButton, Typography, useTheme } from '@mui/material';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useCurrentUser } from '../../users/providers/UserProvider';
 import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 import GuideActionBar from '../components/guides/GuideActionBar';
 import GuideModBar from '../components/guides/GuideModBar';
 import ROUTES from '../../routes/routesModel';
 import Spinner from '../../components/Spinner';
 import Error from '../../components/Error';
+import { useCustomTheme } from '../../providers/CustomThemeProvider';
 
 export default function GuidePage() {
 
     const { guide, guidesError, guidesIsLoading, getGuideById, handleUpvoteGuide, handleDownvoteGuide, handleApproveGuide, handleDeleteGuide, handleFeatureGuide } = useGuides();
     const { id } = useParams();
     const { user } = useCurrentUser();
+    const { isDark } = useCustomTheme();
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -69,8 +72,19 @@ export default function GuidePage() {
                 <CardContent sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                     {user && guide.user_id === user._id &&
                         <Box sx={{ width: "100%", display: "flex", justifyContent: "flex-end" }}>
-                            <IconButton size='large'>
-                                <EditIcon sx={{}} />
+                            <IconButton
+                                size='large'
+                                sx={{ color: isDark ? "white" : "black" }}
+                                onClick={() => { }}
+                            >
+                                <DeleteIcon />
+                            </IconButton>
+                            <IconButton
+                                size='large'
+                                sx={{ color: isDark ? "white" : "black" }}
+                                onClick={() => { }}
+                            >
+                                <EditIcon />
                             </IconButton>
                         </Box>
                     }
@@ -82,7 +96,13 @@ export default function GuidePage() {
                     </Typography>
                     <Box className={"content-container"} dangerouslySetInnerHTML={{ __html: guide.content }}
                         sx={{ mt: 2 }} />
-                    <GuideActionBar guideId={guide._id} upvotes={guide.upvotes} downvotes={guide.downvotes} handleUpvote={handleUpvote} handleDownvote={handleDownvote} />
+                    <GuideActionBar
+                        guideId={guide._id}
+                        upvotes={guide.upvotes}
+                        downvotes={guide.downvotes}
+                        handleUpvote={handleUpvote}
+                        handleDownvote={handleDownvote}
+                    />
                     {guide.youtubeUrl && (
                         <Box sx={{ display: "flex", flexDirection: "column", textAlign: "center", gap: 1, justifyContent: "center" }}>
                             <Typography variant="h3" component="h3">

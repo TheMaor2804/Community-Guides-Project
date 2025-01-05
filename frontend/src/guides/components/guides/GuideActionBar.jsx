@@ -82,7 +82,7 @@ export default function GuideActionBar({ guideId, upvotes, downvotes, handleUpvo
             <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
                 <Typography variant="body1" component="p">
                     <IconButton
-                        sx={{}}
+                        sx={{ color: isDark ? "white" : "black" }}
                         onClick={() => {
                             handleUpvote(guideId);
                             handleDisplayUpvote();
@@ -97,7 +97,7 @@ export default function GuideActionBar({ guideId, upvotes, downvotes, handleUpvo
                 <Typography variant="body1" component="p">
 
                     <IconButton
-                        sx={{}}
+                        sx={{ color: isDark ? "white" : "black" }}
                         onClick={() => {
                             handleDownvote(guideId);
                             handleDisplayDownvote();
