@@ -1,8 +1,6 @@
 import React from 'react'
 import { useCurrentUser } from '../../../users/providers/UserProvider';
 import { Button, CardActions } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import ROUTES from '../../../routes/routesModel';
 
 export default function GuideModBar({ guide, handleDelete, handleReject, handleApprove, handleFeature }) {
 
@@ -15,17 +13,13 @@ export default function GuideModBar({ guide, handleDelete, handleReject, handleA
         return null;
     }
 
-    const navigate = useNavigate();
 
     return (
         <CardActions>
             <Button
                 variant='contained'
                 color='error'
-                onClick={() => {
-                    handleDelete(guide._id)
-                    navigate(-1);
-                }}
+                onClick={handleDelete}
             >
                 Delete Guide
             </Button>

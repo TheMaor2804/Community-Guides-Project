@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import useGuides from '../hooks/useGuides'
 import { Box, Card, CardContent, Container, IconButton, Typography, useTheme } from '@mui/material';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
@@ -11,6 +11,7 @@ import ROUTES from '../../routes/routesModel';
 import Spinner from '../../components/Spinner';
 import Error from '../../components/Error';
 import { useCustomTheme } from '../../providers/CustomThemeProvider';
+import GuideDeleteDialog from '../components/guides/GuideDeleteDialog';
 
 export default function GuidePage() {
 
@@ -19,9 +20,20 @@ export default function GuidePage() {
     const { user } = useCurrentUser();
     const { isDark } = useCustomTheme();
 
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+
     const navigate = useNavigate();
     const location = useLocation();
 
+    const handleDialog = useCallback((term) => {
+        if (term === "open") return setIsDialogOpen(true);
+        setIsDialogOpen(false);
+    }, []);
+
+    const deleteGuide = useCallback(async () => {
+        handleDeleteGuide(guide._id);
+        navigate(-1);
+    }, [guide]);
 
     useEffect(() => {
         getGuideById(id);
@@ -75,7 +87,7 @@ export default function GuidePage() {
                             <IconButton
                                 size='large'
                                 sx={{ color: isDark ? "white" : "black" }}
-                                onClick={() => { }}
+                                onClick={() => handleDialog("open")}
                             >
                                 <DeleteIcon />
                             </IconButton>
@@ -121,12 +133,17 @@ export default function GuidePage() {
                     )}
                     <GuideModBar
                         guide={guide}
-                        handleDelete={handleDeleteGuide}
+                        handleDelete={() => handleDialog("open")}
                         handleApprove={handleApproveGuide}
                         handleReject={handleApproveGuide}
                         handleFeature={handleFeatureGuide}
                     />
                 </CardContent>
+                <GuideDeleteDialog
+                    isDialogOpen={isDialogOpen}
+                    onDelete={deleteGuide}
+                    onChangeDialog={() => handleDialog()}
+                />
             </Card>
         </Container >
     )
