@@ -3,7 +3,6 @@ const normalizeGuide = (guide, userId, displayName) => {
         title: guide.title,
         content: guide.content,
         category: guide.category,
-        linkedBuild: guide.linkedBuild,
         user_id: guide.userId || userId,
         author: displayName,
         youtubeUrl: guide.youtubeUrl
