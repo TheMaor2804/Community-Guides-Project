@@ -34,7 +34,7 @@ export default function CreateGuideForm({
                 error={error}
                 title={title}
                 isLoading={isLoading}
-                node='Create'
+                node='Submit'
                 styles={{ maxWidth: "800px" }}
                 isSubmitDisabled={contentLength < 50}
             >

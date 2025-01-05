@@ -6,7 +6,6 @@ const guideSchema = {
         'any.required': 'Content is required.',
     }),
     category: Joi.string().length(24).required(),
-    linkedBuild: Joi.string().length(24).optional().allow(""),
     youtubeUrl: Joi.string()
         .pattern(/^(https?:\/\/)?(www\.)?youtube\.com\/.*$/)
         .optional().allow(""),

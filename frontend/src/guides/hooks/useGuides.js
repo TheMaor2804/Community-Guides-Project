@@ -60,6 +60,8 @@ export default function useGuides() {
         try {
             const guide = await getGuide(guideId);
             setGuide(guide);
+            setIsLoading(false);
+            return guide;
         } catch (error) {
             setError(error);
         }
@@ -115,7 +117,7 @@ export default function useGuides() {
         setIsLoading(true);
         try {
             const data = await updateGuide(guideId, guide);
-            return data;
+            navigate(ROUTES.GUIDE + "/" + data._id, { replace: true });
         } catch (error) {
             setError(error);
         }

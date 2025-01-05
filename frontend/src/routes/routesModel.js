@@ -8,6 +8,7 @@ const ROUTES = {
   LOGIN: "/login",
   CREATE_GUIDE: "/create-guide",
   GUIDE: "/guide",
+  EDIT_GUIDE: "/edit-guide",
   MY_GUIDES: "/my-guides",
   FAV_GUIDES: "/fav-guides",
   MANAGE_CATEGORIES: "/manage-categories",

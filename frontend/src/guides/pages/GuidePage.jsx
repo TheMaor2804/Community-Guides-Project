@@ -94,7 +94,7 @@ export default function GuidePage() {
                             <IconButton
                                 size='large'
                                 sx={{ color: isDark ? "white" : "black" }}
-                                onClick={() => { }}
+                                onClick={() => { navigate(ROUTES.EDIT_GUIDE + "/" + guide._id) }}
                             >
                                 <EditIcon />
                             </IconButton>
