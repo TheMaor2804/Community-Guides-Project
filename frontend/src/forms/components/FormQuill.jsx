@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material'
+import { Box, Container, Typography } from '@mui/material'
 import React, { useEffect, useRef, useState } from 'react'
 import ReactQuill from 'react-quill-new'
 import 'quill/dist/quill.snow.css'; // Default Snow theme
@@ -28,9 +28,10 @@ export default function FormQuill({
     }, [data, onContentLengthChange]);
 
     return (
-        <Box
-            sx={{ width: "100%" }}
-        >
+        <Box sx={{
+            display: 'flex', flexDirection: 'column',
+            width: '100%', pb: 10
+        }}>
             <ReactQuill
                 ref={quillRef}
                 className={isDark ? 'dark' : 'light'}
