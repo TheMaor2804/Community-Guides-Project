@@ -86,7 +86,6 @@ export default function GuideActionBar({ guideId, upvotes, downvotes, handleUpvo
                         onClick={() => {
                             handleUpvote(guideId);
                             handleDisplayUpvote();
-
                         }}
                     >
                         {isUpvoted ? <ThumbUpAltIcon /> : <ThumbUpOffAltIcon />}
