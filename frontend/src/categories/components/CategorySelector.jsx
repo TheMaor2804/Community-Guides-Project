@@ -4,6 +4,7 @@ import Guides from '../../guides/components/Guides';
 import Spinner from '../../components/Spinner';
 import Error from '../../components/Error';
 import { useCustomTheme } from '../../providers/CustomThemeProvider';
+import GuidesSearchBar from '../../guides/components/guides/GuidesSearchBar';
 
 export default function CategorySelector({ categories, guides, guidesError, guidesIsLoading, categoriesError, categoriesIsLoading }) {
 
@@ -42,6 +43,7 @@ export default function CategorySelector({ categories, guides, guidesError, guid
             alignItems: 'center',
             width: '100%',
         }}>
+            <GuidesSearchBar />
             <Typography variant='h4'>Select a Category</Typography>
             <Select
                 value={selectedCategory}
