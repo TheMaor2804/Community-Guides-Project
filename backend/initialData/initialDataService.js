@@ -1,5 +1,8 @@
 const fs = require('fs');
 const path = require('path');
+const { registerUser } = require('../users/models/usersAccessDataService');
+const { createCategory } = require('../categories/models/categoryAccessDataService');
+const { createGuide } = require('../guides/models/guidesAccessDataService');
 
 const dataFilePath = path.join(__dirname, 'data.json');
 

@@ -2,14 +2,24 @@
     "users": [
         {
             "displayName": "John Doe",
+            "uniqueDisplayName": "johndoe",
             "email": "John@gmail.com",
             "password": "Abc1234!"
         },
         {
+            "displayName": "moderator",
+            "uniqueDisplayName": "moderator",
+            "email": "mod@gmail.com",
+            "password": "Abc1234!",
+            "isMod": true
+        },
+        {
             "_id": "6772c2f57eb662f54ed98e42",
             "displayName": "Admin",
+            "uniqueDisplayName": "admin",
             "email": "admin@gmail.com",
-            "password": "Abc1234!"
+            "password": "Abc1234!",
+            "isAdmin": true
         }
     ],
     "categories": [
