@@ -166,6 +166,7 @@ export default function useGuides() {
     const handleApproveGuide = useCallback(async (guideId) => {
         try {
             const guide = await approveGuide(guideId);
+            getGuideById(guideId);
             return guide;
         } catch (error) {
             setError(error);
@@ -175,6 +176,7 @@ export default function useGuides() {
     const handleFeatureGuide = useCallback(async (guideId) => {
         try {
             const guide = await featureGuide(guideId);
+            getGuideById(guideId);
             return guide;
         } catch (error) {
             setError(error);
