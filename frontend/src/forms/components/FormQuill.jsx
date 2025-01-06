@@ -30,7 +30,7 @@ export default function FormQuill({
     return (
         <Box sx={{
             display: 'flex', flexDirection: 'column',
-            width: '100%', pb: 10
+            width: '100%', pb: 10, color: isDark ? "white" : "black"
         }}>
             <ReactQuill
                 ref={quillRef}
