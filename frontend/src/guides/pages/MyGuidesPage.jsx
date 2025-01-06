@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import useGuides from '../hooks/useGuides';
 import useCategories from '../../categories/hooks/useCategories';
 import CategorySelector from '../../categories/components/CategorySelector';
+import PageHeader from '../../components/PageHeader';
 
 export default function MyGuidesPage() {
 
@@ -37,6 +38,10 @@ export default function MyGuidesPage() {
                 backgroundPosition: 'center',
             }}
         >
+            <PageHeader
+                title="My Guides Page"
+                subtitle="On this page you can find all the guides you made"
+            />
             <Container
                 sx={{
                     display: 'flex',

@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import CategorySelector from '../../categories/components/CategorySelector';
 import useGuides from '../hooks/useGuides';
 import useCategories from '../../categories/hooks/useCategories';
+import PageHeader from '../../components/PageHeader';
 
 export default function FavGuidesPage() {
     const { filteredGuides, getFavGuides, guidesIsLoading, guidesError } = useGuides()
@@ -36,6 +37,10 @@ export default function FavGuidesPage() {
                 backgroundPosition: 'center',
             }}
         >
+            <PageHeader
+                title="Favorites Page"
+                subtitle="On this page you can find all the guides you upvoted"
+            />
             <Container
                 sx={{
                     display: 'flex',
