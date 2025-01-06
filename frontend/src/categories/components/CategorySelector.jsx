@@ -10,13 +10,13 @@ export default function CategorySelector({ categories, guides, guidesError, guid
 
     const [filteredGuides, setFilteredGuides] = useState([])
 
-    const [selectedCategory, setSelectedCategory] = useState('')
+    const [selectedCategory, setSelectedCategory] = useState(0)
 
     const { isDark } = useCustomTheme();
 
     useEffect(() => {
         if (categories && categories.length > 0) {
-            setSelectedCategory(categories[0]._id);
+            setSelectedCategory(0);
         }
     }, [categories]);
 
@@ -24,7 +24,7 @@ export default function CategorySelector({ categories, guides, guidesError, guid
         if (!guides) {
             return;
         }
-        if (selectedCategory === categories[0]?._id) {
+        if (selectedCategory === 0) {
             setFilteredGuides(guides);
         } else {
             setFilteredGuides(guides.filter(guide => guide.category === selectedCategory));
@@ -50,6 +50,9 @@ export default function CategorySelector({ categories, guides, guidesError, guid
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 sx={{ color: isDark ? "white" : "black" }}
             >
+                <MenuItem value={0}>
+                    All
+                </MenuItem>
                 {categories.map(category => (
                     <MenuItem key={category._id} value={category._id}>
                         {category.name}
