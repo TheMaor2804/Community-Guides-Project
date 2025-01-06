@@ -123,13 +123,14 @@ export default function GuidePage() {
                             <Typography variant="h3" component="h3">
                                 Guide Video
                             </Typography>
-                            <Container>
+                            <Container sx={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", maxWidth: "100%" }}>
                                 <iframe
                                     width="560"
                                     height="315"
                                     src={`https://www.youtube.com/embed/${guide.youtubeUrl.split('v=')[1]}`}
                                     title="YouTube video player"
                                     allowFullScreen
+                                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
                                 ></iframe>
                             </Container>
                         </Box>
