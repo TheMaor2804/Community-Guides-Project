@@ -19,8 +19,6 @@ router.get("/", async (req, res) => {
 router.get("/myGuides", auth, async (req, res) => {
     try {
         const userInfo = req.user;
-        console.log(userInfo);
-
         const guides = await getMyGuides(userInfo._id);
         res.send(guides);
     } catch (error) {
