@@ -24,31 +24,11 @@ const schema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  image: Image,
   isAdmin: { type: Boolean, default: false },
   isMod: { type: Boolean, default: false },
   createdAt: {
     type: Date,
     default: Date.now,
-  },
-  createdGuides: [
-    {
-      type: String,
-    },
-  ],
-  isBanned: {
-    type: Boolean,
-    default: false,
-  },
-  banReason: {
-    type: String,
-  },
-  banDate: {
-    type: Date,
-  },
-  banEndDate: {
-    type: Date,
-    default: null,
   },
 });
 
