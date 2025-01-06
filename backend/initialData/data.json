@@ -1,0 +1,56 @@
+{
+    "users": [
+        {
+            "displayName": "John Doe",
+            "email": "John@gmail.com",
+            "password": "Abc1234!"
+        },
+        {
+            "_id": "6772c2f57eb662f54ed98e42",
+            "displayName": "Admin",
+            "email": "admin@gmail.com",
+            "password": "Abc1234!"
+        }
+    ],
+    "categories": [
+        {
+            "_id": "677bde52821a8b11e0c4ba6a",
+            "name": "MMORPG"
+        },
+        {
+            "name": "RPG"
+        },
+        {
+            "name": "FPS"
+        },
+        {
+            "name": "MOBA"
+        },
+        {
+            "name": "RTS"
+        }
+    ],
+    "guides": [
+        {
+            "user_id": "6772c2f57eb662f54ed98e42",
+            "category": "677bde52821a8b11e0c4ba6a",
+            "author": "Admin",
+            "title": "Alpha 2 Has Officially Launched",
+            "isApproved": true,
+            "isFeatured": true
+        },
+        {
+            "user_id": "6772c2f57eb662f54ed98e42",
+            "category": "677bde52821a8b11e0c4ba6a",
+            "author": "Admin",
+            "title": "Legends of Elyria",
+            "isApproved": true
+        },
+        {
+            "user_id": "6772c2f57eb662f54ed98e42",
+            "category": "677bde52821a8b11e0c4ba6a",
+            "author": "Admin",
+            "title": "Valeria Chronicles"
+        }
+    ]
+}
