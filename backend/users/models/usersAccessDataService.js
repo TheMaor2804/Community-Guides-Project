@@ -92,7 +92,7 @@ const updateUser = async (userId, updatedUser) => {
       updatedUser.email = updatedUser.email.toLowerCase().trim();
       const users = await User.find();
       users.forEach((user) => {
-        if (compareEmails(newUser.email, user.email)) {
+        if (compareEmails(updatedUser.email, user.email)) {
           return createError("Mongoose", new Error("User with this email already exists"));
         }
       });
@@ -108,4 +108,16 @@ const updateUser = async (userId, updatedUser) => {
   }
 };
 
-module.exports = { registerUser, getUser, getUsers, loginUser, updateUser };
+const deleteUser = async (userId) => {
+  validateDB();
+  try {
+    let user = await User.findByIdAndDelete(userId);
+    return user;
+  }
+  catch (error) {
+    return createError("Mongoose", error);
+  }
+}
+
+
+module.exports = { registerUser, getUser, getUsers, loginUser, updateUser, deleteUser };
