@@ -44,7 +44,7 @@ export default function HomePage() {
         >
             <PageHeader
                 title="Home Page"
-                subtitle="On this page you can find all the guides"
+                subtitle="On this page you can find all the featured guides and approved guides"
             />
             {/* FEATURED section */}
 
