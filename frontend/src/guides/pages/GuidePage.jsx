@@ -79,6 +79,7 @@ export default function GuidePage() {
                 pt: 20,
             }}
         >
+            {!guide?.isApproved && <Typography variant="h3" component="h3" sx={{ color: "red" }}>This guide is not approved yet, and will not show on the home page </Typography>}
             <Card key={guide._id} sx={{ width: "100%", maxWidth: 1200, mb: 2, mt: 2 }}>
                 <CardContent sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                     {user && guide.user_id === user._id &&
