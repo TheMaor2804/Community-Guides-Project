@@ -72,7 +72,7 @@ router.put("/:id", auth, async (req, res) => {
         const errorMessage = validateGuide(newGuide);
         if (errorMessage !== "")
             return handleError(res, 400, "Validation error: " + errorMessage);
-        const guide = normalizeGuide(newGuide, userInfo._id, userInfo.displayName);
+        let guide = normalizeGuide(newGuide, userInfo._id, userInfo.displayName);
         guide = await updateGuide(id, guide);
         res.send(guide);
     } catch (error) {
