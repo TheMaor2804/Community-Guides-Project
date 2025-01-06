@@ -38,11 +38,12 @@ export default function CRM() {
                 label="Manage Featured Guides"
                 variant='contained'
             />
+            {/* Todo finish this page
             <NavBarItem
                 to={ROUTES.MANAGE_USERS}
                 label="Manage Users"
                 variant='contained'
-            />
+            /> */}
             <NavBarItem
                 to={ROUTES.MANAGE_CATEGORIES}
                 label="Manage Categories"

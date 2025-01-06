@@ -30,11 +30,13 @@ export default function Router() {
             <Route path={ROUTES.FAV_GUIDES} element={<FavGuidesPage />} />
             <Route path={ROUTES.CRM} element={<CRMPage />} />
             <Route path={ROUTES.MANAGE_FEATURED_GUIDES} element={<ManageFeaturedGuidesPage />} />
-            <Route path={ROUTES.MANAGE_USERS} element={<ManageUsersPage />} />
             <Route path={ROUTES.MOD_PAGE} element={<ModPage />} />
             <Route path={ROUTES.MANAGE_CATEGORIES} element={<ManageCategoriesPage />} />
             <Route path={ROUTES.LOGIN} element={<LoginPage />} />
             <Route path={ROUTES.SIGNUP} element={<SignupPage />} />
+
+            {/* Finish this page
+            <Route path={ROUTES.MANAGE_USERS} element={<ManageUsersPage />} /> */}
 
             <Route path="*" element={<ErrorPage />} />
         </Routes>
