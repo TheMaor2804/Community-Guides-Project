@@ -117,7 +117,7 @@ Warning: The following initial user accounts are intended for local development 
 ## API Documentation
 For detailed API documentation and examples, refer to the Postman collections:
 
-- Guides API Documentation: https://documenter.getpostman.com/view/37786987/2sAY4vgNWe
+- Guides API Documentation: https://documenter.getpostman.com/view/37786987/2sAYJ9Bz28
 
 - Categories API Documentation: https://documenter.getpostman.com/view/37786987/2sAYJ9BysH
 
