@@ -119,6 +119,6 @@ For detailed API documentation and examples, refer to the Postman collections:
 
 - Guides API Documentation: https://documenter.getpostman.com/view/37786987/2sAY4vgNWe
 
-- Categories API Documentation: https://documenter.getpostman.com/view/37786987/2sAY4vgNWe
+- Categories API Documentation: https://documenter.getpostman.com/view/37786987/2sAYJ9BysH
 
-- Users API Documentation: https://documenter.getpostman.com/view/37786987/2sAY4vgNbA
+- Users API Documentation: https://documenter.getpostman.com/view/37786987/2sAYJ9Bywm
