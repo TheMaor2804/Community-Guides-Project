@@ -4,6 +4,7 @@ import { Container, Grid2, Typography, useTheme } from '@mui/material';
 import CategorySelector from '../categories/components/CategorySelector';
 import useGuides from '../guides/hooks/useGuides';
 import Guides from '../guides/components/Guides';
+import PageHeader from '../components/PageHeader';
 
 export default function HomePage() {
 
@@ -41,6 +42,10 @@ export default function HomePage() {
                 backgroundPosition: 'center',
             }}
         >
+            <PageHeader
+                title="Home Page"
+                subtitle="On this page you can find all the guides"
+            />
             {/* FEATURED section */}
 
             <Container
