@@ -26,7 +26,15 @@ export default function AboutPage() {
     const { isDark } = useCustomTheme();
 
     return (
-        <Container maxWidth="100vw" sx={{ pt: 20, backgroundColor: theme.palette.background.default, color: isDark ? "#fff" : "#000" }}>
+        <Container
+            maxWidth="100vw"
+            sx={{
+                pt: 20,
+                backgroundColor: theme.palette.background.default,
+                color: isDark ? "#fff" : "#000",
+                height: "100%",
+                minHeight: "100vh",
+            }}>
             <PageHeader
                 title="About Page"
                 subtitle="On this page you can find explanations about using the application"
