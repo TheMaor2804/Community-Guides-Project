@@ -27,11 +27,7 @@ export default function useGuides() {
     useEffect(() => {
         setIsLoading(true);
         if (guides) {
-            console.log(query);
-
             setFilteredGuides(guides.filter(guide => guide.title.toLowerCase().includes(query.toLowerCase())));
-            console.log(filteredGuides);
-
         }
         setIsLoading(false);
     }, [guides, query]);
