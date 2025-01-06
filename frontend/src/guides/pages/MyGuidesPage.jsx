@@ -6,7 +6,7 @@ import CategorySelector from '../../categories/components/CategorySelector';
 
 export default function MyGuidesPage() {
 
-    const { guides, getMyGuides, guidesIsLoading, guidesError } = useGuides()
+    const { filteredGuides, getMyGuides, guidesIsLoading, guidesError } = useGuides()
 
     const { categories, getAllCategories, categoriesIsLoading, categoriesError } = useCategories();
 
@@ -55,7 +55,7 @@ export default function MyGuidesPage() {
 
                 <CategorySelector
                     categories={categories}
-                    guides={guides}
+                    guides={filteredGuides}
                     guidesError={guidesError}
                     guidesIsLoading={guidesIsLoading}
                     categoriesError={categoriesError}

@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useCurrentUser } from "../../users/providers/UserProvider";
 import useAxios from "../../hooks/useAxios";
@@ -10,7 +10,7 @@ export default function useGuides() {
     const [guide, setGuide] = useState({});
     const [guidesIsLoading, setIsLoading] = useState(true);
     const [guidesError, setError] = useState();
-    const [filteredGuides, setFilteredGuides] = useState();
+    const [filteredGuides, setFilteredGuides] = useState([]);
     const [query, setQuery] = useState('');
     const [searchParams] = useSearchParams();
 
@@ -19,6 +19,22 @@ export default function useGuides() {
     const navigate = useNavigate();
 
     useAxios();
+
+    useEffect(() => {
+        setQuery(searchParams.get("q") ?? "");
+    }, [searchParams]);
+
+    useEffect(() => {
+        setIsLoading(true);
+        if (guides) {
+            console.log(query);
+
+            setFilteredGuides(guides.filter(guide => guide.title.toLowerCase().includes(query.toLowerCase())));
+            console.log(filteredGuides);
+
+        }
+        setIsLoading(false);
+    }, [guides, query]);
 
     const getAllGuides = useCallback(async () => {
         setIsLoading(true);

@@ -5,7 +5,7 @@ import useGuides from '../hooks/useGuides';
 import useCategories from '../../categories/hooks/useCategories';
 
 export default function FavGuidesPage() {
-    const { guides, getFavGuides, guidesIsLoading, guidesError } = useGuides()
+    const { filteredGuides, getFavGuides, guidesIsLoading, guidesError } = useGuides()
 
     const { categories, getAllCategories, categoriesIsLoading, categoriesError } = useCategories();
 
@@ -54,7 +54,7 @@ export default function FavGuidesPage() {
 
                 <CategorySelector
                     categories={categories}
-                    guides={guides}
+                    guides={filteredGuides}
                     guidesError={guidesError}
                     guidesIsLoading={guidesIsLoading}
                     categoriesError={categoriesError}

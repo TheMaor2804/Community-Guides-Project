@@ -4,11 +4,10 @@ import { Container, Grid2, Typography, useTheme } from '@mui/material';
 import CategorySelector from '../categories/components/CategorySelector';
 import useGuides from '../guides/hooks/useGuides';
 import Guides from '../guides/components/Guides';
-import { Link } from 'react-router-dom';
 
 export default function HomePage() {
 
-    const { guides, getAllApprovedGuides, guidesIsLoading, guidesError } = useGuides()
+    const { filteredGuides, getAllApprovedGuides, guidesIsLoading, guidesError } = useGuides()
 
     const { categories, getAllCategories, categoriesIsLoading, categoriesError } = useCategories();
 
@@ -60,7 +59,7 @@ export default function HomePage() {
                 </Typography>
                 <Grid2 container spacing={2} sx={{ width: "100%" }}>
                     <Guides
-                        guides={guides.filter(guide => guide.isFeatured)}
+                        guides={filteredGuides.filter(guide => guide.isFeatured)}
                         isLoading={guidesIsLoading}
                         error={guidesError} />
                 </Grid2>
@@ -86,7 +85,7 @@ export default function HomePage() {
 
                 <CategorySelector
                     categories={categories}
-                    guides={guides}
+                    guides={filteredGuides}
                     guidesError={guidesError}
                     guidesIsLoading={guidesIsLoading}
                     categoriesError={categoriesError}
