@@ -4,9 +4,6 @@ import { Button, CardActions } from '@mui/material';
 
 export default function GuideModBar({ guide, handleDelete, handleApprove, handleFeature }) {
 
-    const [isApproved, setIsApproved] = React.useState(guide.isApproved);
-    const [isFeatured, setIsFeatured] = React.useState(guide.isFeatured);
-
     const { user } = useCurrentUser();
 
     if (!user || (!user.isMod && !user.isAdmin)) {
@@ -28,26 +25,19 @@ export default function GuideModBar({ guide, handleDelete, handleApprove, handle
                 color='success'
                 onClick={() => {
                     handleApprove(guide._id)
-                    if (isApproved && isFeatured) {
-                        handleFeature(guide._id)
-                        setIsFeatured(!isFeatured)
-                    }
-                    setIsApproved(!isApproved)
-
                 }}
             >
-                {isApproved ? "Unapprove Guide" : "Approve Guide"}
+                {guide.isApproved ? "Unapprove Guide" : "Approve Guide"}
             </Button>
-            {user?.isAdmin && isApproved &&
+            {user?.isAdmin && guide.isApproved &&
                 <Button
                     variant='contained'
                     color="info"
                     onClick={() => {
                         handleFeature(guide._id)
-                        setIsFeatured(!isFeatured)
                     }}
                 >
-                    {isFeatured ? "Unfeature Guide" : "Feature Guide"}
+                    {guide.isFeatured ? "Unfeature Guide" : "Feature Guide"}
                 </Button>}
         </CardActions >
     )
