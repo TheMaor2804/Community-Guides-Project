@@ -78,7 +78,6 @@ export default function GuidePage() {
                 backgroundPosition: 'center',
                 pt: 20,
             }}
-
         >
             <Card key={guide._id} sx={{ width: "100%", maxWidth: 1200, mb: 2, mt: 2 }}>
                 <CardContent sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
@@ -106,8 +105,11 @@ export default function GuidePage() {
                     <Typography variant="h5" component="h3">
                         by {guide.author}
                     </Typography>
-                    <Box className={"content-container"} dangerouslySetInnerHTML={{ __html: guide.content }}
-                        sx={{ mt: 2 }} />
+                    <Box
+                        className={"content-container"}
+                        dangerouslySetInnerHTML={{ __html: guide.content }}
+                        sx={{ mt: 2, color: isDark ? "white" : "black" }}
+                    />
                     <GuideActionBar
                         guideId={guide._id}
                         upvotes={guide.upvotes}
