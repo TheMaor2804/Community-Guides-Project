@@ -1,8 +1,8 @@
-import { Container, Divider, Typography } from "@mui/material";
+import { Container, Divider, Typography, useTheme } from "@mui/material";
 export default function PageHeader({ title, subtitle }) {
-
+    const theme = useTheme();
     return (
-        <Container >
+        <Container sx={{ backgroundColor: theme.palette.background.paper, borderRadius: 2, py: 3, }}>
             <Typography variant="h2" component="h1" style={{}}>
                 {title}
             </Typography>
