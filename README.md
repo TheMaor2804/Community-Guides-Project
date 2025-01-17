@@ -90,9 +90,9 @@ guides.
     ```sh
     npm start
     ```    
-5. Navigate back to the root directory
+5. Open a new terminal!
 
-6. Install dependencies
+6. Navigate and install dependencies
 
     ```sh
     cd frontend
